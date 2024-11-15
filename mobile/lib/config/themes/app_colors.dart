@@ -22,4 +22,8 @@ class AppColors {
   static const Color dimGray = Color(0xFF62696E);
   static const Color cadetGrey = Color(0xFF94A2AC);
   static const Color manatee = Color(0xFF94A0AA);
+  static const Color taupeGray = Color(0xFF88878E);
+
+  
+
 }

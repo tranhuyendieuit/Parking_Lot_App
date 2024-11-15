@@ -17,4 +17,15 @@ class Constants {
   static const String alreadyHaveAnAccount = 'Already have an account? ';
   static const String register = 'Register';
   static const String nextStep = 'Next Step';
+  static const String parkingLot = 'Parking Lot';
+  static const String notification = 'Notification';
+  static const String viewIncommingRides = 'View Incomming Rides';
+  static const String parkingHistory = 'Parking History';
+  static const String contactPolice = 'Contact Police';
+  static const String vehicle = 'VEHICLE';
+  static const String checkIn = 'CHECK IN';
+  static const String checkOut = 'CHECK OUT';
+  static const String name = 'Name:';
+  static const String phone = 'Phone:';
+  static const String agency = 'Agency:';
 }
