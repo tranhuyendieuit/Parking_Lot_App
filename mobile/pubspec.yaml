@@ -37,6 +37,8 @@ dependencies:
   shared_preferences: ^2.3.2
   bloc: ^8.1.0
   country_picker: ^2.0.26
+  font_awesome_flutter: ^10.8.0
+  qr_code_scanner: ^1.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

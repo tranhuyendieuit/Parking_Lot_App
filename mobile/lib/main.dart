@@ -5,6 +5,7 @@ void main() {
   runApp(MaterialApp(
     initialRoute: AppRoutes.getInitialRoute(),
     routes: AppRoutes.getRoutes(),
+    // home: SplashPage(),
     debugShowCheckedModeBanner: true,
   ));
 }
