@@ -19,16 +19,17 @@ class SplashBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const Spacer(),
             Image.asset(
               AppImages.logo.webpAssetPath,
               height: 100,
               width: 250,
             ),
-            const SizedBox(height: 20),
+            const Spacer(),
             Image.asset(
               AppImages.backgroundSplash.webpAssetPath,
-              height: 100,
-              width: 250,
+              height: 150,
+              width: 300,
             ),
           ],
         ),

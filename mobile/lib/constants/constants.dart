@@ -17,4 +17,29 @@ class Constants {
   static const String alreadyHaveAnAccount = 'Already have an account? ';
   static const String register = 'Register';
   static const String nextStep = 'Next Step';
+  static const String firstName = 'First Name';
+  static const String lastName = 'Last Name';
+  static const String yourFirstName = 'Your first name';
+  static const String yourLastName = 'Your last name';
+  static const String email = 'Email';
+  static const String enterYourEmail = 'Enter your email';
+  static const String mobileNumber = 'Mobile Number';
+  static const String enterYourMobileNumber = 'Enter your mobile number';
+  static const String vehiclePlate = 'Vehicle Plate';
+  static const String enterYourVehiclePlate = 'Enter your vehicle plate';
+  static const String vehicleBrand = 'Vehicle Brand';
+  static const String enterYourVehicleBrand = 'Enter your vehicle brand';
+  static const String vehicleModel = 'Vehicle Model';
+  static const String enterYourVehicleModel = 'Enter your vehicle model';
+  static const String profile = 'Profile';
+  static const String logout = 'Logout';
+  static const String privacy = 'Privacy policy';
+  static const String purchaseHistory = 'Purchase history';
+  static const String settings = 'Settings';
+  static const String helpSupport = 'Help & Support';
+  static const String editProfile = 'Edit Profile';
+  static const String scanQrCode = 'Scan QR Code';
+  static const String validate = 'Validate';
+  static const String example = 
+      "I started my first diet when I was eight years old. It began with skipping breakfast, eliminating certain foods and, evolved to not eating for extended periods of the day. I believed that the less I ate, the more weight I could lose and the more valued I was. By my teens, thoughts about food and diets had infiltrated my mind, body, and spirit. There was never an hour in the day when I didn’t think about what I ate, what I was going to eat, what I looked like, and how I compared to others. From thigh gaps, hip dips, and arm jiggles to flat stomachs, each body part became my obsession. I experienced this in the early 2000s but it is still very relevant. A 2023 systematic review showed that 22% of children and adolescents across the globe reported disordered eating with a significantly higher proportion (30%) among girls.";
 }

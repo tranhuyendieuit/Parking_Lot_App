@@ -19,6 +19,7 @@ class AppColors {
   static const Color yellowOrange = Color(0xFFfbb140);
   static const Color antiFlashWhite = Color(0xFFF2F2F2);
   static const Color aeroBlue = Color(0xFFD5F5E6);
+  static const Color aliceBlue = Color(0xFFF3F7FB);
   static const Color dimGray = Color(0xFF62696E);
   static const Color cadetGrey = Color(0xFF94A2AC);
   static const Color manatee = Color(0xFF94A0AA);
