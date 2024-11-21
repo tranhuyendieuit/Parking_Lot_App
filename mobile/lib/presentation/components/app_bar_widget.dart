@@ -11,17 +11,20 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: AppColors.white,
-      leading: GestureDetector(
-        child: Icon(icon ?? Icons.arrow_back_ios),
-        onTap: () {
-          onPressLeftButton ?? Navigator.pop(context);
-        },
+    return Padding(
+      padding: const EdgeInsets.only(left: 6),
+      child: AppBar(
+        backgroundColor: AppColors.white,
+        leading: GestureDetector(
+          child: Icon(icon ?? Icons.arrow_back_ios),
+          onTap: () {
+            onPressLeftButton ?? Navigator.pop(context);
+          },
+        ),
+        title: Text(title ?? '',
+            textAlign: TextAlign.center,
+            style: AppTextStyles.montserratStyle.bold18Black),
       ),
-      title: Text(title ?? '',
-          textAlign: TextAlign.center,
-          style: AppTextStyles.montserratStyle.black20Bold),
     );
   }
 

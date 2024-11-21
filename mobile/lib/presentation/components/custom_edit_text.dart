@@ -162,6 +162,7 @@ class _CustomEditTextState extends State<CustomEditText> {
                       child: Icon(
                         isTextVisible ? Icons.visibility : Icons.visibility_off,
                         color: AppColors.mountainMeadow,
+                        size: 20,
                       ),
                     )
                   : widget.suffix,

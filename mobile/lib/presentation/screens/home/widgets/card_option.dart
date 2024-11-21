@@ -17,7 +17,7 @@ class CardOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.45,
-      height: MediaQuery.of(context).size.width * 0.45, 
+      height: MediaQuery.of(context).size.width * 0.45,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
@@ -45,7 +45,7 @@ class CardOption extends StatelessWidget {
                 Text(
                   name,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.montserratStyle.bold12Black,
+                  style: AppTextStyles.montserratStyle.medium10Black,
                 ),
               ],
             ),

@@ -1,14 +1,14 @@
 import 'package:mobile/data/models/check_park_model.dart';
 import 'package:mobile/data/models/police.dart';
-import 'package:mobile/data/models/user.dart';
+import 'package:mobile/data/models/user_model.dart';
 
-const User user = User(
-  id: '1',
-  name: 'John Doe',
-  email: 'hBcXg@example.com',
-  password: 'password',
-  vehicle: 'Car',
-);
+// const User user = User(
+//   id: '1',
+//   name: 'John Doe',
+//   email: 'hBcXg@example.com',
+//   password: 'password',
+//   vehicle: 'Car',
+// );
 const Police police = Police(
   id: '1',
   name: 'John Doe',

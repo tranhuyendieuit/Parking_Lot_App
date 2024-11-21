@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mobile/config/themes/app_colors.dart';
@@ -98,26 +97,48 @@ class _HomeBodyState extends State<HomeBody> {
           ),
         ],
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        height: 60,
-        backgroundColor: AppColors.white,
-        color: AppColors.taupeGray,
-        buttonBackgroundColor: AppColors.mountainMeadow,
-        animationDuration: const Duration(milliseconds: 300),
-        animationCurve: Curves.easeInOutCirc,
-        letIndexChange: (value) => true,
-        index: 2,
-        onTap: (selectIndex) {
-          selectIndex = selectIndex;
-        },
-        items: const [
-          Icon(Icons.home, size: 30, color: AppColors.antiFlashWhite),
-          Icon(Icons.search, size: 30, color: AppColors.antiFlashWhite),
-          Icon(Icons.qr_code, size: 30, color: AppColors.antiFlashWhite),
-          Icon(Icons.category, size: 30, color: AppColors.antiFlashWhite),
-          Icon(Icons.person, size: 30, color: AppColors.antiFlashWhite),
-        ],
-      ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   height: 60,
+      //   backgroundColor: AppColors.white,
+      //   color: AppColors.mountainMeadow,
+      //   buttonBackgroundColor: AppColors.mountainMeadow,
+      //   animationDuration: const Duration(milliseconds: 300),
+      //   animationCurve: Curves.easeInOutCirc,
+      //   letIndexChange: (value) => true,
+      //   index: 2,
+      //   onTap: (selectIndex) {
+      //     // selectIndex = selectIndex;
+      //     switch (selectIndex) {
+      //       case 0:
+      //         Navigator.pushNamed(context, AppRoutes.home);
+      //         break;
+      //       case 1:
+      //         Navigator.pushNamed(context, AppRoutes.profile);
+      //         break;
+      //       case 2:
+      //         Navigator.pushNamed(context, AppRoutes.qrCode);
+      //         break;
+      //       case 3:
+      //         Navigator.pushNamed(context, AppRoutes.profile);
+      //         break;
+      //       case 4:
+      //         Navigator.pushNamed(context, AppRoutes.profile);
+      //         break;
+      //       default:
+      //     }
+      //   },
+      //   items: const [
+      //     Icon(
+      //       Icons.home,
+      //       size: 30,
+      //       color: AppColors.white,
+      //     ),
+      //     Icon(Icons.search, size: 30, color: AppColors.white),
+      //     Icon(Icons.qr_code, size: 30, color: AppColors.white),
+      //     Icon(Icons.category, size: 30, color: AppColors.white),
+      //     Icon(Icons.person, size: 30, color: AppColors.white),
+      //   ],
+      // ),
     );
   }
 }
