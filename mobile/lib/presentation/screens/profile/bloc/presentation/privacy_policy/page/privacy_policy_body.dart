@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/config/themes/app_colors.dart';
 import 'package:mobile/config/themes/app_text_styles.dart';
 import 'package:mobile/constants/constants.dart';
+import 'package:mobile/presentation/components/app_bar_widget.dart';
 
 class PrivacyPolicyBody extends StatelessWidget {
   const PrivacyPolicyBody({super.key});
@@ -10,18 +11,8 @@ class PrivacyPolicyBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        title: const Text(Constants.privacy),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined),
-            onPressed: () {},
-          ),
-        ],
+      appBar: const AppBarWidget(
+        title: Constants.privacy,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),

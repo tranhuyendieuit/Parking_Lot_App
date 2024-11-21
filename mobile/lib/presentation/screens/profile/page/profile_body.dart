@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile/config/themes/app_colors.dart';
 import 'package:mobile/config/themes/app_text_styles.dart';
 import 'package:mobile/constants/constants.dart';
+import 'package:mobile/presentation/components/app_bar_widget.dart';
 import 'package:mobile/presentation/components/custom_button.dart';
 import 'package:mobile/presentation/screens/profile/widgets/profile_option.dart';
 
@@ -17,18 +18,8 @@ class _ProfileBodyState extends State<ProfileBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      appBar: AppBar(
-        title: const Text(Constants.profile),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_outlined),
-            onPressed: () {},
-          ),
-        ],
+      appBar: const AppBarWidget(
+        title: Constants.profile,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),

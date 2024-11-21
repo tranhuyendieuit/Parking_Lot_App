@@ -101,7 +101,7 @@ class MontserratStyles {
       16, AppColors.wildBlueYonder, AppFontWeight.medium.weight);
   final regular14RadicalRed = customMontserratStyle(
       14, AppColors.radicalRed, AppFontWeight.bold.weight);
-      final bold18Black =
+  final bold18Black =
       customMontserratStyle(18, AppColors.black, AppFontWeight.bold.weight);
   final black22Bold =
       customMontserratStyle(22, AppColors.black, AppFontWeight.bold.weight);

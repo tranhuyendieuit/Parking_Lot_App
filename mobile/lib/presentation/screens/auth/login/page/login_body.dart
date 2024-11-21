@@ -7,6 +7,7 @@ import 'package:mobile/constants/constants.dart';
 import 'package:mobile/presentation/components/custom_button.dart';
 import 'package:mobile/presentation/components/custom_edit_text.dart';
 import 'package:mobile/presentation/components/custom_logo.dart';
+import 'package:mobile/presentation/routes/app_routes.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -46,14 +47,7 @@ class _LoginBodyState extends State<LoginBody> {
                   title: Constants.password,
                   hintText: Constants.enterYourPassword,
                   isPasswordInput: true,
-                  // controller: passwordController,
-                  // isPassword: true,
-                  // isPasswordShown: isPasswordShown,
-                  // onTogglePassword: () {
-                  //   setState(() {
-                  //     isPasswordShown = !isPasswordShown;
-                  //   });
-                  // },
+                  
                 ),
                 const SizedBox(height: 16),
                 Row(
@@ -88,7 +82,7 @@ class _LoginBodyState extends State<LoginBody> {
                 CustomButton(
                   text: Constants.login,
                   onTap: () {
-                    Navigator.pushNamed(context, '/profile');
+                    Navigator.pushNamed(context, AppRoutes.mainScreen);
                   },
                   height: 50,
                   width: 260,
@@ -128,7 +122,7 @@ class _LoginBodyState extends State<LoginBody> {
                           style: AppTextStyles.montserratStyle.bold13Black,
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, '/register');
+                              Navigator.pushNamed(context, AppRoutes.register);
                             }
                           // recognizer: TapGestureRecognizer()
                           //   ..onTap = () {

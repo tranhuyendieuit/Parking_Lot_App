@@ -5,7 +5,7 @@ void main() {
   runApp(MaterialApp(
     initialRoute: AppRoutes.getInitialRoute(),
     routes: AppRoutes.getRoutes(),
-    // home: SplashPage(),
+    // home: const HomePage(),
     debugShowCheckedModeBanner: true,
   ));
 }

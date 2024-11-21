@@ -1,4 +1,8 @@
-enum AppImages { logo, backgroundSplash }
+enum AppImages {
+  logo,
+  backgroundSplash,
+  defaultAvatar,
+}
 
 extension AppImagesExtension on AppImages {
   String get webpAssetPath {

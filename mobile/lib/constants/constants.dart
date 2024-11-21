@@ -42,4 +42,15 @@ class Constants {
   static const String validate = 'Validate';
   static const String example = 
       "I started my first diet when I was eight years old. It began with skipping breakfast, eliminating certain foods and, evolved to not eating for extended periods of the day. I believed that the less I ate, the more weight I could lose and the more valued I was. By my teens, thoughts about food and diets had infiltrated my mind, body, and spirit. There was never an hour in the day when I didn’t think about what I ate, what I was going to eat, what I looked like, and how I compared to others. From thigh gaps, hip dips, and arm jiggles to flat stomachs, each body part became my obsession. I experienced this in the early 2000s but it is still very relevant. A 2023 systematic review showed that 22% of children and adolescents across the globe reported disordered eating with a significantly higher proportion (30%) among girls.";
+  static const String parkingLot = 'Parking Lot';
+  static const String notification = 'Notification';
+  static const String viewIncommingRides = 'View Incomming Rides';
+  static const String parkingHistory = 'Parking History';
+  static const String contactPolice = 'Contact Police';
+  static const String vehicle = 'VEHICLE';
+  static const String checkIn = 'CHECK IN';
+  static const String checkOut = 'CHECK OUT';
+  static const String name = 'Name:';
+  static const String phone = 'Phone:';
+  static const String agency = 'Agency:';
 }
