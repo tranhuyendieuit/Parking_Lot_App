@@ -1,40 +1,47 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile/data/models/user_model.dart';
+import 'package:mobile/data/repositories/auth_repository.dart';
 import 'package:mobile/presentation/screens/auth/login/bloc/login_event.dart';
 import 'package:mobile/presentation/screens/auth/login/bloc/login_state.dart';
-import 'package:mobile/data/services/api_service.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginState.initial()) {
-    on<LoginWithEmailPasswordEvent>(_onLoginWithEmailPasswordEvent);
-    on<LoginChangeEmailPasswordEvent>(_onLoginChangeEmailPasswordEvent);
+    on<LoginWithUsernamePasswordEvent>(_onLoginWithUsernamePasswordEvent);
+    on<LoginChangeEmailPasswordEvent>(_onLoginChangeUsernamePasswordEvent);
   }
 
-  void _onLoginWithEmailPasswordEvent(
-      LoginWithEmailPasswordEvent event, Emitter<LoginState> emit) async {
+  void _onLoginWithUsernamePasswordEvent(
+      LoginWithUsernamePasswordEvent event, Emitter<LoginState> emit) async {
     emit(state.copyWith(status: LoginStatus.processing));
-    try {
-      final response = await ApiService.login(
-        username: state.email,
-        password: state.password,
-      );
-      emit(state.copyWith(status: LoginStatus.succes));
-      // Handle token if needed
-      print('Login successful: ${response['data']}');
-    } catch (e) {
-      emit(state.copyWith(
-        status: LoginStatus.failure,
-        errormessage: e.toString(),
-      ));
-    }
+    final userModel = UserModel(
+      password: state.password,
+      username: state.username,
+    );
+    print("User send: ${state.username}| pass send: ${state.password}");
+
+    final result = await AuthRepository().login(userModel);
+
+    result.fold(
+      (error) {
+        emit(state.copyWith(
+          status: LoginStatus.failure,
+          errormessage: error,
+        ));
+        print('Login Error: ${error}');
+      },
+      (response) {
+        emit(state.copyWith(status: LoginStatus.success));
+      },
+    );
   }
 
-  void _onLoginChangeEmailPasswordEvent(
+  void _onLoginChangeUsernamePasswordEvent(
       LoginChangeEmailPasswordEvent event, Emitter<LoginState> emit) {
     emit(
       state.copyWith(
-        email: event.email,
+        email: event.username,
         password: event.password,
-        isEnabled: event.email.isNotEmpty && event.password.isNotEmpty,
+        isEnabled: event.username.isNotEmpty && event.password.isNotEmpty,
       ),
     );
   }

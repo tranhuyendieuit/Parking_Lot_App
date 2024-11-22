@@ -15,13 +15,13 @@ final class LoginWithEmailVisibleEvent extends LoginEvent {
 }
 
 final class LoginChangeEmailPasswordEvent extends LoginEvent {
-  final String email;
+  final String username;
   final String password;
 
   const LoginChangeEmailPasswordEvent(
-      {required this.email, required this.password});
+      {required this.username, required this.password});
   @override
-  List<Object?> get props => [email, password];
+  List<Object?> get props => [username, password];
 }
 
 final class LoginWithGoogleEvent extends LoginEvent {
@@ -29,7 +29,7 @@ final class LoginWithGoogleEvent extends LoginEvent {
   List<Object?> get props => [];
 }
 
-final class LoginWithEmailPasswordEvent extends LoginEvent {
+final class LoginWithUsernamePasswordEvent extends LoginEvent {
   @override
   List<Object?> get props => [];
 }
