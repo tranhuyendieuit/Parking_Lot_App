@@ -1,4 +1,33 @@
+import 'package:dartz/dartz.dart';
+import 'package:mobile/constants/api_url.dart';
+import 'package:mobile/data/data_sources/local/share_preferences.dart';
+import 'package:mobile/data/models/user_model.dart';
+import 'package:mobile/data/services/api_service.dart';
 
+class AuthRepository {
+  final ApiService _apiService = ApiService();
+
+  Future<Either<String, dynamic>> login(UserModel userModel) async {
+    try {
+      final response = await _apiService.request(
+        ApiUrls.signInEndpoint,
+        method: Method.post,
+        data: userModel.toJson(),
+      );
+
+      String accessToken = response.data['data'];
+      await SharedPrefer.sharedPrefer.setUserToken(accessToken);
+
+      print("Login Successful: ${response.data}");
+
+      return Right(response.data);
+    } catch (e) {
+      print("Login API Error: $e");
+
+      return Left(e.toString());
+    }
+  }
+}
 
 // class AuthRepository {
 //   final ApiService apiService = ApiService();

@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-enum LoginStatus { initial, processing, succes, failure }
+enum LoginStatus { initial, processing, success, failure }
 
 final class LoginState extends Equatable {
   final LoginStatus status;
   final String errormessage;
   final bool isVisable;
   final bool isEnabled;
-  final String email;
+  final String username;
   final String password;
   final String googleAccount;
   final String messageInputEmail;
@@ -20,7 +20,7 @@ final class LoginState extends Equatable {
       this.errormessage = '',
       this.isVisable = false,
       this.isEnabled = false,
-      this.email = '',
+      this.username = '',
       this.password = '',
       this.googleAccount = '',
       this.messageInputEmail = '',
@@ -32,7 +32,7 @@ final class LoginState extends Equatable {
         status: LoginStatus.initial,
         isVisable: false,
         isEnabled: false,
-        email: '',
+        username: '',
         password: '',
         googleAccount: '',
         messageInputEmail: '',
@@ -58,7 +58,7 @@ final class LoginState extends Equatable {
         errormessage: errormessage ?? this.errormessage,
         isVisable: isVisable ?? this.isVisable,
         isEnabled: isEnabled ?? this.isEnabled,
-        email: email ?? this.email,
+        username: email ?? this.username,
         password: password ?? this.password,
         googleAccount: googleAccount ?? this.googleAccount,
         messageInputEmail: messageInputEmail ?? this.messageInputEmail,
@@ -74,7 +74,7 @@ final class LoginState extends Equatable {
         errormessage,
         isEnabled,
         isVisable,
-        email,
+        username,
         password,
         googleAccount,
         messageInputEmail,
