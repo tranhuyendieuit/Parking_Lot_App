@@ -7,7 +7,6 @@ import '../services/api_service.dart';
 class UserRepository {
   final ApiService _apiService = ApiService();
 
-
   Future<Either<String, UserModel>> getUserProfile() async {
     final params = {
       'authenticated': '',
@@ -25,9 +24,6 @@ class UserRepository {
       );
       if (response.data != null) {
         final user = UserModel.fromJson(response.data['data']);
-
-        print("Get User inf: ${response.data}");
-
         return Right(user);
       } else {
         return const Left("not found");
