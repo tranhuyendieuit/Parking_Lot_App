@@ -58,4 +58,6 @@ class Constants {
   static const String plateNumber = "Plate number: ";
   static const String checkInTime = "Check-in Time:";
   static const String checkOutTime = "Check-out Time:";
+  static const String ok = "OK";
+  static const String success = "Success";
 }
