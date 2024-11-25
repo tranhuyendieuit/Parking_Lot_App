@@ -13,20 +13,27 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   void _onHomeInitialEvent(
       HomeInitialEvent event, Emitter<HomeState> emit) async {
-    emit(state.copyWith(
-      status: HomeStatus.processing,
-    ));
-    final result = await Future.wait([
-      userRepository.getUserProfile(),
-    ]);
-    (result[0]).fold((error) {
-      emit(state.copyWith(
-        status: HomeStatus.failure,
-      ));
-      print("get user inf failed:  $error}");
-    }, (response) {
-      print("User information:  ${response}");
-    });
-    emit(state.copyWith(status: HomeStatus.success));
+    // Nếu đã có dữ liệu, không cần gọi API
+    if (state.user != null) {
+      emit(state.copyWith(status: HomeStatus.success));
+      return;
+    }
+
+    emit(state.copyWith(status: HomeStatus.processing));
+    final result = await userRepository.getUserProfile();
+
+    result.fold(
+      (error) {
+        emit(state.copyWith(status: HomeStatus.failure));
+        print("Error fetching user info: $error");
+      },
+      (user) {
+        emit(state.copyWith(
+          status: HomeStatus.success,
+          user: user,
+        ));
+        print("User information: ${user.toJson()}");
+      },
+    );
   }
 }

@@ -6,6 +6,6 @@ class ParkingHistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ParkingHistoryBody();
+    return ParkingHistoryBody();
   }
 }

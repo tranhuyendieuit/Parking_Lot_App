@@ -15,7 +15,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-// TODO: REPLACE WITH THE EXACT BLOC, THIS IS JUST AN EXAMPLE TO PRINT DATA FOR THE CASE WHERE THE API REQUIRES AN ACCESS TOKEN
     return BlocProvider<HomeBloc>(
       create: (context) => HomeBloc()..add(const HomeInitialEvent()),
       child: const ProfileBody(),

@@ -75,6 +75,8 @@ class MontserratStyles {
       customMontserratStyle(12, AppColors.white, AppFontWeight.bold.weight);
   final bold12MountainMeadow = customMontserratStyle(
       12, AppColors.mountainMeadow, AppFontWeight.bold.weight);
+  final semiBold12MountainMeadow = customMontserratStyle(
+      12, AppColors.mountainMeadow, AppFontWeight.semiBold.weight);
   final bold13Black =
       customMontserratStyle(13, AppColors.black, AppFontWeight.bold.weight);
   final regular13DimGray = customMontserratStyle(

@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-
 import '../../constants/api_url.dart';
 import '../models/user_model.dart';
 import '../services/api_service.dart';
@@ -8,10 +7,8 @@ import '../services/api_service.dart';
 class UserRepository {
   final ApiService _apiService = ApiService();
 
+
   Future<Either<String, UserModel>> getUserProfile() async {
-    // I have looked at some APIs that require an access token,
-    // and each of those APIs will have its own specific parameters,
-    // so for those APIs, you should provide the correct parameters for them.
     final params = {
       'authenticated': '',
       'authorities[0].authority': '',

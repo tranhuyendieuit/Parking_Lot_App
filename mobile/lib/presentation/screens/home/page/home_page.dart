@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile/presentation/screens/home/bloc/home_bloc.dart';
+import 'package:mobile/presentation/screens/home/bloc/home_event.dart';
 import 'package:mobile/presentation/screens/home/page/home_body.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,6 +9,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeBody();
+    return BlocProvider<HomeBloc>(
+        create: (context) => HomeBloc()..add(const HomeInitialEvent()),
+        child: const HomeBody());
   }
 }

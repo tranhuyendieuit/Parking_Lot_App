@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:mobile/config/themes/app_colors.dart';
 import 'package:mobile/config/themes/app_icons.dart';
 import 'package:mobile/config/themes/app_text_styles.dart';
@@ -35,6 +36,8 @@ class _LoginBodyState extends State<LoginBody> {
             context,
             AppRoutes.mainScreen,
           );
+        } else if (state.status == LoginStatus.processing) {
+          EasyLoading.show();
         }
       },
       child: BlocBuilder<LoginBloc, LoginState>(
@@ -157,12 +160,7 @@ class _LoginBodyState extends State<LoginBody> {
                                   ..onTap = () {
                                     Navigator.pushNamed(
                                         context, AppRoutes.register);
-                                  }
-                                // recognizer: TapGestureRecognizer()
-                                //   ..onTap = () {
-                                //     // Navigate to register
-                                //   },
-                                ),
+                                  }),
                           ],
                         ),
                       ),

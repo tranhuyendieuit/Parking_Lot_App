@@ -15,6 +15,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.only(left: 6),
       child: AppBar(
         backgroundColor: AppColors.white,
+        centerTitle: true,
         leading: GestureDetector(
           child: Icon(icon ?? Icons.arrow_back_ios),
           onTap: () {

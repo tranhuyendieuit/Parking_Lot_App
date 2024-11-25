@@ -16,11 +16,15 @@ class ProfileBody extends StatefulWidget {
   State<ProfileBody> createState() => _ProfileBodyState();
 }
 
-class _ProfileBodyState extends State<ProfileBody> {
+class _ProfileBodyState extends State<ProfileBody>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
-    // TODO: REPLACE WITH THE EXACT BLOC
-    return BlocBuilder<HomeBloc, HomeState>(builder: (context, state){
+    super.build(context);
+    return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
+      final user = state.user;
       return Scaffold(
         backgroundColor: AppColors.white,
         appBar: const AppBarWidget(
@@ -36,7 +40,7 @@ class _ProfileBodyState extends State<ProfileBody> {
                 const CircleAvatar(
                   radius: 40,
                   backgroundImage:
-                  NetworkImage('https://via.placeholder.com/150'),
+                      NetworkImage('https://via.placeholder.com/150'),
                   child: Align(
                     alignment: Alignment.bottomRight,
                     child: CircleAvatar(
@@ -51,15 +55,17 @@ class _ProfileBodyState extends State<ProfileBody> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text('Nicolas Adams',
-                    style: AppTextStyles.montserratStyle.bold18Black),
-                const Text(
-                  'nicolasadams@gmail.com',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                if (user != null) ...[
+                  Text('${user.firstName ?? ''} ${user.lastName ?? ''}',
+                      style: AppTextStyles.montserratStyle.bold18Black),
+                  Text(
+                    user.email ?? '',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
                   ),
-                ),
+                ],
                 const SizedBox(height: 16),
                 CustomButton(
                   onTap: () {},
@@ -89,7 +95,6 @@ class _ProfileBodyState extends State<ProfileBody> {
           ),
         ),
       );
-
     });
   }
 }
