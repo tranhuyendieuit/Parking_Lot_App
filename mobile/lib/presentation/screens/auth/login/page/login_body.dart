@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile/config/themes/app_colors.dart';
 import 'package:mobile/config/themes/app_icons.dart';
 import 'package:mobile/config/themes/app_text_styles.dart';
@@ -40,7 +41,12 @@ class _LoginBodyState extends State<LoginBody> {
           EasyLoading.show();
         }
       },
-      child: BlocBuilder<LoginBloc, LoginState>(
+      child: BlocConsumer<LoginBloc, LoginState>(
+        listener: (context, state) {
+          if (state.status == LoginStatus.success) {
+            Fluttertoast.showToast(msg: Constants.loginSuccessful);
+          }
+        },
         builder: (context, state) {
           return GestureDetector(
             onTap: () {

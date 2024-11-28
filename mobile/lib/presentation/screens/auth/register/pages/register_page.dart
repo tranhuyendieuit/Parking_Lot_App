@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile/config/themes/app_colors.dart';
+import 'package:mobile/presentation/screens/auth/register/bloc/register_bloc.dart';
 import 'package:mobile/presentation/screens/auth/register/pages/register_body.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -8,10 +10,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.white,
-      body: RegisterBody(),
-    );
+    return BlocProvider<RegisterBloc>(
+        create: (context) => RegisterBloc(), child: const RegisterBody());
   }
 }

@@ -1,11 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mobile/data/models/register_model.dart';
 import 'package:mobile/data/models/user_model.dart';
 import 'package:mobile/data/repositories/auth_repository.dart';
 import 'package:mobile/presentation/screens/auth/register/bloc/register_event.dart';
 import 'package:mobile/presentation/screens/auth/register/bloc/register_state.dart';
+import 'package:mobile/utils/format_time.dart';
 
-class LoginBloc extends Bloc<RegisterEvent, RegisterState> {
-  LoginBloc() : super(RegisterState.initial()) {
+class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
+  RegisterBloc() : super(RegisterState.initial()) {
     on<RegisterWithUsernameEvent>(_onRegisterWithUsernameEvent);
     on<RegisterChangeEmailPasswordEvent>(_onRegisterChangeEmailPasswordEvent);
   }
@@ -13,19 +15,18 @@ class LoginBloc extends Bloc<RegisterEvent, RegisterState> {
   void _onRegisterWithUsernameEvent(
       RegisterWithUsernameEvent event, Emitter<RegisterState> emit) async {
     emit(state.copyWith(status: RegisterStatus.processing));
-    final userModel = UserModel(
+    final registerModel = RegisterModel(
       password: state.password,
       username: state.username,
       firstName: state.firstName,
       lastName: state.lastName,
       phoneNumber: state.phoneNumber,
-      // vehicleBrand: state.vehicleBrand,
-      // vehicleModel: state.vehicleModel,
-      // vehiclePlate: state.vehiclePlate,
+      vehicleBrand: state.vehicleBrand,
+      vehicleModel: state.vehicleModel,
+      plateNumber: state.vehiclePlate,
+      registerDate: DateTime.now().formatDate(),
     );
-    print("User send: ${state.username}| pass send: ${state.password}");
-
-    final result = await AuthRepository().login(userModel);
+    final result = await AuthRepository().register(registerModel);
 
     result.fold(
       (error) {
@@ -33,7 +34,6 @@ class LoginBloc extends Bloc<RegisterEvent, RegisterState> {
           status: RegisterStatus.failure,
           errormessage: error,
         ));
-        print('Login Error: $error');
       },
       (response) {
         emit(state.copyWith(status: RegisterStatus.success));
@@ -55,15 +55,18 @@ class LoginBloc extends Bloc<RegisterEvent, RegisterState> {
         vehicleBrand: event.vehicleBrand,
         vehicleModel: event.vehicleModel,
         vehiclePlate: event.vehiclePlate,
-        isEnabled: event.username.isNotEmpty &&
-            event.password.isNotEmpty &&
-            event.firstName.isNotEmpty &&
-            event.lastName.isNotEmpty &&
-            event.phoneNumber.isNotEmpty &&
-            event.vehicleBrand.isNotEmpty &&
-            event.vehicleModel.isNotEmpty &&
-            event.vehiclePlate.isNotEmpty,
       ),
     );
+    if (state.email.isNotEmpty &&
+        state.password.isNotEmpty &&
+        state.username.isNotEmpty &&
+        state.firstName.isNotEmpty &&
+        state.lastName.isNotEmpty &&
+        state.phoneNumber.isNotEmpty &&
+        state.vehicleBrand.isNotEmpty &&
+        state.vehicleModel.isNotEmpty &&
+        state.vehiclePlate.isNotEmpty) {
+      emit(state.copyWith(isEnabled: true));
+    }
   }
 }

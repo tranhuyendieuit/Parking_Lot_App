@@ -29,7 +29,6 @@ class _HomeBodyState extends State<HomeBody>
     super.build(context);
     return BlocListener<HomeBloc, HomeState>(listener: (context, state) {
       if (state.status == HomeStatus.success) {
-        Fluttertoast.showToast(msg: Constants.loginSuccessful);
         EasyLoading.dismiss();
       }
     }, child: BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {

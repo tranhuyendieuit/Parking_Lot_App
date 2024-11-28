@@ -60,4 +60,5 @@ class Constants {
   static const String checkOutTime = "Check-out Time:";
   static const String ok = "OK";
   static const String success = "Success";
+  static const String registerSuccess = "Register Success";
 }
